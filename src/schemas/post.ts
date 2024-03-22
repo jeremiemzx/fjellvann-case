@@ -11,6 +11,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'heading_title',
+      title: 'Heading Title',
+      type: 'string',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -33,12 +38,40 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'imagePlacement',
+          title: 'Image Placement',
+          type: 'string',
+          options: {
+            list: ['Left', 'Right'], // Options for image placement
+          },
+        },
+      ],
     }),
     defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'button1',
+      title: 'Button 1',
+      type: 'string',
+    }),
+    defineField({
+      name: 'button2',
+      title: 'Button 2',
+      type: 'string',
+    }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'string',
+      options: {
+        list: ['White', 'Light Gray', 'Yellow', 'Black'],
+      },
+    }),    
   ],
   preview: {
     select: {

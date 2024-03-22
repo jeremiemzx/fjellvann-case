@@ -2,6 +2,7 @@
  * This config is used to set up Sanity Studio that's mounted on the `/pages/studio/[[...index]].tsx` route
  */
 
+
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
@@ -65,3 +66,4 @@ export default defineConfig({
     visionTool({ defaultApiVersion: apiVersion }),
   ],
 })
+

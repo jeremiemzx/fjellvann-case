@@ -11,6 +11,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'heading_title',
+      title: 'Heading Title',
+      type: 'string',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -39,16 +44,24 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'button1',
+      title: 'Button 1',
+      type: 'blockContent',
+    }),
+    defineField({
+      name: 'button2',
+      title: 'Button 2',
+      type: 'blockContent',
+    }),
   ],
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
       media: 'mainImage',
     },
     prepare(selection) {
-      const { author } = selection
-      return { ...selection, subtitle: author && `by ${author}` }
+      return selection;
     },
   },
 })
