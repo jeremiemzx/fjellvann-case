@@ -167,6 +167,7 @@ body {
 /* Layout */
 .container {
   margin: 0 auto;
+  zoom: 65%;;
 }
 
 main {
@@ -212,8 +213,9 @@ main {
 
 @media (min-width: 575px) {
   .container {
-    max-width: var(--max-width-1);
-    padding: 0 var(--space-4);
+    /*max-width: var(--max-width-1);
+    padding: 0 var(--space-4);*/
+    margin: 56px;
   }
 
   main {
@@ -340,21 +342,30 @@ main {
 .card {
   display: flex;
   flex-direction: column;
-  padding: var(--space-2);
-  padding: 9px;
+  padding: 56px;
   position: relative;
   border-bottom: 1px solid #ced2d9;
+  width: 1728px;
+  height: 679px;
+  gap: 40px;
 }
 
 .card .card__container {
   margin: 0 var(--space-1) 0;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
 }
 
 .card .card__cover {
-  width: 100%;
-  height: 231px;
-  -o-object-fit: cover;
-  object-fit: cover;
+  /*width: 100%;
+  height: 231px;*/
+  width: 50%;
+  height: auto;
+  /*-o-object-fit: cover;
+  object-fit: cover;*/
 }
 
 .card .card__cover--none {
@@ -365,19 +376,32 @@ main {
 
 .card .card__title {
   font-family: var(--font-family-sans);
-  font-weight: 800;
+  /*font-weight: 800;
   font-size: var(--font-size-7);
   line-height: var(--line-height-6);
   letter-spacing: -0.025em;
-  margin: var(--space-3) 0;
+  margin: var(--space-3) 0;*/
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 3.2px;
+  margin-bottom: -12px;
 }
 
 .card .card__excerpt {
   font-family: var(--font-family-serif);
   font-weight: 400;
   font-size: var(--font-size-4);
-  line-height: var(--line-height-3);
-  margin-top: 0;
+  line-height: /*var(--line-height-3)*/ 30px;
+  margin: 0;
+}
+
+.card .card__heading_title {
+  font-family: var(--font-family-sans);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58.09px;
+  margin: 0px;
 }
 
 .card .card__date {
@@ -439,8 +463,56 @@ main {
 
   .card .card__cover,
   .card .card__cover--none {
-    min-width: 366.5px;
+    /* min-width: 366.5px;
     max-width: 366.5px;
-    max-height: 231px;
+    max-height: 231px;*/
   }
 }
+
+.custombutton1 {
+  background-color: #ffd600;
+  padding: 24px 32px 24px 32px;
+  border: 2px solid #ffd600;
+  font-family: var(--font-family-sans);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 3.2px;
+}
+
+.custombutton2 {
+  background-color: white;
+  padding: 24px 32px 24px 32px;
+  border: 2px solid #000000;
+  font-family: var(--font-family-sans);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 3.2px;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.groupbutton {
+  display: flex;
+  gap: 32px;
+}
+
+/*post.mainImage*/
+
+.full-width-height {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-list li span {
+  font-size: var--(font-size-3);
+  line-height: 27px;
+}
+
+
+
+

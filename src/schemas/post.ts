@@ -2,7 +2,7 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'post',
-  title: 'Post',
+  title: 'Page',
   type: 'document',
   fields: [
     defineField({
@@ -44,7 +44,40 @@ export default defineType({
           title: 'Image Placement',
           type: 'string',
           options: {
-            list: ['Left', 'Right'], // Options for image placement
+            list: ['Left', 'Right'],
+          },
+        },
+      ],
+    }),
+    defineField({
+      name: 'custom_list',
+      title: 'List',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'listItem',
+          title: 'List item',
+          fields: [
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'string',
+            },
+            {
+              name: 'icon',
+              title: 'Icon',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+          ],
+          preview: {
+            select: {
+              title: 'text',
+              media: 'icon',
+            },
           },
         },
       ],
@@ -57,21 +90,50 @@ export default defineType({
     defineField({
       name: 'button1',
       title: 'Button 1',
-      type: 'string',
+      type: 'object',
+      fields: [
+        {
+          name: 'text',
+          title: 'Text',
+          type: 'string',
+        },
+        {
+          name: 'link',
+          title: 'Link',
+          type: 'url',
+        },
+      ],
     }),
     defineField({
       name: 'button2',
       title: 'Button 2',
-      type: 'string',
+      type: 'object',
+      fields: [
+        {
+          name: 'text',
+          title: 'Text',
+          type: 'string',
+        },
+        {
+          name: 'link',
+          title: 'Link',
+          type: 'url',
+        },
+      ],
     }),
     defineField({
       name: 'backgroundColor',
       title: 'Background Color',
       type: 'string',
       options: {
-        list: ['White', 'Light Gray', 'Yellow', 'Black'],
+        list: [
+          { title: 'White', value: '#ffffff' },
+          { title: 'Light Gray', value: '#E9E9E9' },
+          { title: 'Yellow', value: '#FFD600' },
+          { title: 'Black', value: '#000000' },
+        ],
       },
-    }),    
+    }),
   ],
   preview: {
     select: {

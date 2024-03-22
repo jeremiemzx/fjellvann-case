@@ -72,7 +72,7 @@ export const getStaticProps: GetStaticProps<
   Query
 > = async ({ draftMode = false, params = {} }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
-  const post = await getPost(client, 'test' )
+  const post = await getPost(client, 'test')
 
   if (!post) {
     return {
@@ -99,65 +99,72 @@ export default function ProjectSlugRoute(
   return (
     <Container>
       <section className="post">
-        {/*{post.mainImage ? (
-          <Image
-            className="post__cover"
-            src={urlForImage(post.mainImage).url()}
-            height={231}
-            width={367}
-            alt=""
-          />
-        ) : (
-          <div className="post__cover--none" />
-        )}
-        <div className="post__container">
-          <h1 className="post__title">{post.title}</h1>
-          <p className="post__excerpt">{post.excerpt}</p>
-          <p className="post__date">{formatDate(post._createdAt)}</p>
-          <div className="post__content">
-            <PortableText value={post.body} />
-          </div>
-        </div>*/}
-
-
         <div className="card" style={{ backgroundColor: post.backgroundColor }}>
-      {post.mainImage ? (
-        <Image
-          className="card__cover"
-          src={urlForImage(post.mainImage).width(500).height(300).url()}
-          height={300}
-          width={500}
-          alt=""
-        />
-      ) : (
-        <div className="card__cover--none" />
-      )}
-      <div className="card__container">
-        <h3 className="card__title">{post.title}
-          {/*<a className="card__link" href={`/post/${post.slug.current}`}>
-            {post.title}
-          </a>*/}
-        </h3>
-        <h2 className="card__heading_title">{post.heading_title}</h2>
-        <p className="card__excerpt">{post.excerpt}</p>
-        <button>{post.button1}</button>
-        <button>{post.button2}</button>
-      </div>
-    </div>
+          {post.mainImage && post.mainImage.imagePlacement === 'Left' && (
+            <div className="card__cover">
+              <Image
+                src={urlForImage(post.mainImage).width(788).height(567).url()}
+                height={567}
+                width={788}
+                alt=""
+                className="full-width-height"
+              />
+            </div>
+          )}
+          <div className="card__container">
+            <h3 className="card__title">{post.title}</h3>
+            <h2 className="card__heading_title">{post.heading_title}</h2>
+            <p className="card__excerpt">{post.excerpt}</p>
 
+            <ul className="custom-list">
+              {post.custom_list.map((item, index) => {
+                return (
+                  <li
+                    key={index}
+                    style={{
+                      listStyleType: 'none',
+                      listStyleImage: `url(https://cdn.sanity.io/images/exl1743j/production/2a577ac5d1a6a8bfd445105d181d0466c25623f2-42x41.svg)`,
+                      verticalAlign: 'middle',
+                    }}
+                  >
+                    <span>{item.text}</span>
+                  </li>
+                )
+              })}
+            </ul>
 
+            <div className="groupbutton">
+              <a
+                href={post.button1.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="custombutton1"
+              >
+                {post.button1.text}
+              </a>
+              <a
+                href={post.button2.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="custombutton2"
+              >
+                {post.button2.text}
+              </a>
+            </div>
+          </div>
+          {post.mainImage && post.mainImage.imagePlacement === 'Right' && (
+            <div className="card__cover">
+              <Image
+                src={urlForImage(post.mainImage).width(788).height(567).url()}
+                height={567}
+                width={788}
+                alt=""
+                className="full-width-height"
+              />
+            </div>
+          )}
+        </div>
       </section>
     </Container>
   )
 }
-
-/*export const getStaticPaths = async () => {
-  const client = getClient()
-  const slugs = await client.fetch(postSlugsQuery)
-
-  return {
-    paths: slugs?.map(({ slug }) => `/`) || [],
-    fallback: 'blocking',
-  }
-}*/
-
